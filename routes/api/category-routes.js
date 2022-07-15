@@ -24,9 +24,8 @@ router.get('/:id', (req, res) => {
     where: {
       id: req.params.id
     },
-    model: Product,
-    attributes: ['id', 'product_name', 'price', 'stock', 'category_id']
-
+    // model: Product,
+    // attributes: ['id', 'product_name', 'price', 'stock', 'category_id']
   })
     .then(dbCategoryData => res.status(200).json(dbCategoryData))
     .catch(err => res.status(400).json(err))
@@ -50,7 +49,7 @@ router.post('/', (req, res) => {
 router.put('/:id', (req, res) => {
   Category.update(
     {
-      category_title: req.body.category_title
+      category_name: req.body.category_name
     },
     {
       where: {
